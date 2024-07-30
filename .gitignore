@@ -13,6 +13,8 @@
 *.userosscache
 *.sln.docstates
 
+calculator_log.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

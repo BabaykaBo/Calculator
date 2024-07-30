@@ -1,6 +1,8 @@
 ﻿// Declare variables and then initialize to zero.
 using System.Text.RegularExpressions;
 
+using CalcLib = CalculatorLibrary;
+
 namespace Calculator
 {
     class Program
@@ -13,6 +15,8 @@ namespace Calculator
             Console.WriteLine("------------------------\n");
 
             bool endApp = false;
+
+            CalcLib.Calculator calculator = new();
 
             while (!endApp)
             {
@@ -62,7 +66,7 @@ namespace Calculator
                 {
                     try
                     {
-                        result = CalculatorAction.DoOperation(cleanNum1, cleanNum2, op);
+                        result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a mathematical error.\n");
@@ -85,6 +89,8 @@ namespace Calculator
 
             }
 
+            // Add call to close the JSON writer before return
+            calculator.Finish();
             return;
         }
     }
